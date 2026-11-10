@@ -4,9 +4,9 @@ Frontend-only preparedness and evacuation information portal for Mogpog, Marindu
 Web Systems and Technologies 1 final project, group "Never Grow Old", BSIT 3C, MarSU.
 
 ## Core features (Week 2 MVP)
-1. Evacuation center directory: search and filter by barangay, with capacity, facilities, route notes and verification date.
-2. "What should I do?" advisory guide: pick a PAGASA rainfall warning or wind signal plus your location type. A rule table returns an action level and a plain-language "why" line.
-3. Preparedness hub: go-bag checklist (progress saved in localStorage), before/during/after guides, hotlines.
+1. **Evacuation center directory**: search and filter by barangay, with capacity, facilities, route notes and verification date.
+2. **"What should I do?" advisory guide**: pick a PAGASA rainfall warning or wind signal plus your location type. A rule table returns an action level and a plain-language "why" line.
+3. **Preparedness hub**: go-bag checklist (progress saved in localStorage), before/during/after guides, hotlines.
 
 Works offline after the first load (service worker).
 

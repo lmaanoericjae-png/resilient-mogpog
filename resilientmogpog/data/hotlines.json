@@ -1,6 +1,0 @@
-[
-  { "name": "National Emergency Hotline", "number": "911", "note": "Nationwide emergency hotline." },
-  { "name": "Mogpog MDRRMO", "number": null, "note": "To be provided by the Mogpog MDRRMO." },
-  { "name": "Barangay hotline", "number": null, "note": "Each barangay's number to be added by the barangay office." },
-  { "name": "Marinduque Provincial DRRMO", "number": null, "note": "To be provided by the PDRRMO." }
-]

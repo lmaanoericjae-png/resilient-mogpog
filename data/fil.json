@@ -1,0 +1,147 @@
+{
+  "ui": {
+    "skip": "Lumaktaw sa nilalaman",
+    "lang": "English",
+    "tab.directory": "Mga evacuation center",
+    "tab.advisory": "Ano ang gagawin ko?",
+    "tab.hub": "Maghanda",
+    "tab.plan": "Aking plano",
+    "dir.title": "Direktoryo ng mga evacuation center",
+    "dir.search": "Hanapin",
+    "dir.search.ph": "Pangalan, uri o pasilidad",
+    "dir.barangay": "Barangay",
+    "dir.all": "Lahat ng barangay",
+    "dir.status": "Katayuan",
+    "dir.statusAll": "Lahat ng katayuan",
+    "dir.count": "Ipinapakita ang {n} sa {total} na center",
+    "dir.empty": "Walang evacuation center na tumutugma sa hinahanap mo.",
+    "type": "Uri",
+    "capacity": "Kapasidad",
+    "capacity.people": "{n} tao",
+    "facilities": "Pasilidad",
+    "lastVerified": "Huling na-verify",
+    "status": "Katayuan",
+    "notProvided": "Wala pang datos",
+    "notVerified": "Hindi pa na-verify",
+    "sample": "Halimbawa / hindi pa na-verify",
+    "findMap": "Hanapin sa mapa",
+    "status.open": "Bukas",
+    "status.closed": "Sarado",
+    "status.full": "Puno na",
+    "status.unknown": "Hindi alam",
+    "statusAsOf": "{s} (na-update {d})",
+    "statusNone": "{s} (hindi pa na-update)",
+    "type.Barangay hall": "Barangay Hall",
+    "type.Covered court": "Covered court",
+    "type.School": "Paaralan",
+    "adv.title": "Ano ang gagawin ko?",
+    "adv.type": "Uri ng babala",
+    "adv.level": "Antas ng babala",
+    "adv.exposure": "Saan ka nakatira",
+    "adv.levelOf": "Antas {s} sa {max}",
+    "adv.why": "Bakit ito ang payo: ",
+    "adv.explain.base": "{type}: ang \"{level}\" ay nasa batayang antas na {base}.",
+    "adv.explain.up": " Dahil nakatira ka sa \"{exposure}\", itinaas ang payo sa antas {s}.",
+    "adv.explain.same": " Hindi na itinataas ng uri ng tirahan mo (\"{exposure}\") ang antas para sa babalang ito.",
+    "hub.title": "Maghanda",
+    "hub.checklist": "Go-bag checklist",
+    "hub.reset": "I-reset ang checklist",
+    "hub.progress": "{done} sa {total} na gamit ang nakahanda ({pct}%)",
+    "hub.guides": "Bago, habang, at pagkatapos",
+    "hub.hotlines": "Mga emergency hotline",
+    "hub.pending": "Wala pang numero",
+    "plan.title": "Aking plano para sa pamilya",
+    "plan.privacy": "Nakaimbak lamang ang mga sagot na ito sa device mo. Hindi ito ipinapadala kahit saan.",
+    "plan.household": "Ilan kayo sa bahay",
+    "plan.helpNeeds": "Sinong nangangailangan ng dagdag na tulong (hal. matatanda, sanggol)",
+    "plan.meeting": "Lugar ng pagkikita ng pamilya",
+    "plan.contactName": "Pangalan ng kontak sa labas ng lugar",
+    "plan.contactNumber": "Numero ng kontak",
+    "plan.center": "Evacuation center na pupuntahan",
+    "plan.pets": "Plano para sa alagang hayop o livestock",
+    "plan.docs": "Saan nakalagay ang mahahalagang dokumento",
+    "plan.choose": "Pumili ng center",
+    "plan.print": "I-print ang plano",
+    "plan.clear": "Burahin ang plano",
+    "plan.progress": "{f} sa {t} ang nasagutan",
+    "footer": "Proyekto ng estudyante para sa Web Systems and Technologies 1, MarSU. Hindi ito opisyal na serbisyo ng gobyerno. Sundin ang PAGASA at mga lokal na opisyal.",
+    "notice": "Draft na datos: ang mga entry na may markang SAMPLE ay pansamantala hanggang ma-verify ng MDRRMO o ng mga barangay. Laging sundin ang opisyal na anunsyo ng PAGASA at ng lokal na pamahalaan.",
+    "updated": "Huling na-update ang datos: {d}.",
+    "loadError": "Hindi ma-load ang mga data file. Kung binuksan mo ang index.html nang direkta, gumamit ng local server (tingnan ang README)."
+  },
+  "rules": {
+    "status": "Draft na mga patakaran. Kailangang i-validate ang mga aksyon at escalation sa gabay ng NDRRMC/PAGASA at ng Mogpog MDRRMO bago gamitin nang totoo.",
+    "types": { "rainfall": "Rainfall Warning ng PAGASA", "wind": "Tropical Cyclone Wind Signal" },
+    "levels": {
+      "rainfall.none": "Walang babalang umiiral",
+      "wind.none": "Walang signal na umiiral",
+      "yellow": "Dilaw", "orange": "Orange", "red": "Pula"
+    },
+    "exposure": {
+      "riverine": { "label": "Malapit sa ilog", "note": "Mabilis tumaas ang tubig sa ilog. Lumayo sa pampang at huwag tumawid sa umaapaw na ilog." },
+      "coastal": { "label": "Baybayin", "note": "Maaaring maapektuhan ng malakas na hangin at maalon na dagat ang dalampasigan. Lumayo sa baybayin." },
+      "lowlying": { "label": "Mababang lugar o madalas bahain", "note": "Naiipon ang baha sa mabababang lugar. Magplanong lumikas nang maaga." },
+      "upland": { "label": "Mataas na lugar o dalisdis", "note": "Maaaring magdulot ng landslide ang malakas na ulan. Bantayan ang mga bitak sa lupa at nakatagilid na puno." }
+    },
+    "actions": {
+      "0": { "label": "Manatiling nakaabang", "steps": [
+        "Regular na tingnan ang PAGASA at mga anunsyo ng lokal na pamahalaan.",
+        "Suriin ang iyong go-bag checklist at mga emergency contact." ] },
+      "1": { "label": "Maghanda", "steps": [
+        "Subaybayan ang PAGASA at mga anunsyo ng barangay.",
+        "I-charge ang mga telepono at power bank.",
+        "Ihanda ang go-bag at mahahalagang dokumento.",
+        "Alamin ang pinakamalapit na evacuation center at ang daan papunta rito." ] },
+      "2": { "label": "Maging handang lumikas", "steps": [
+        "Ilagay ang go-bag malapit sa pintuan.",
+        "Ilagay sa waterproof na bag ang mga dokumento at gamot.",
+        "Magkasundo sa lugar ng pagkikita ng pamilya.",
+        "Ilipat ang sasakyan at livestock sa mas mataas na lugar kung kaya.",
+        "Maging handang umalis sa sandaling ianunsyo ng mga opisyal." ] },
+      "3": { "label": "Lumikas", "steps": [
+        "Pumunta na ngayon sa itinalagang evacuation center.",
+        "Sundin ang tagubilin ng mga opisyal ng barangay at mga rescuer.",
+        "Iwasan ang binabahang kalsada at mga ilog.",
+        "Dalhin ang go-bag, mga gamot, at ID.",
+        "Tingnan ang mga kapitbahay na maaaring mangailangan ng tulong: matatanda, bata, at may kapansanan." ] }
+    }
+  },
+  "checklist": {
+    "note": "Draft na listahan ng go-bag batay sa karaniwang gabay sa paghahanda. I-verify sa materyal ng NDRRMC/OCD.",
+    "groups": { "food": "Pagkain at tubig", "docs": "Mga dokumento at pera", "health": "Kalusugan", "comms": "Ilaw at komunikasyon", "family": "Pangangailangan ng pamilya" },
+    "items": {
+      "water": "Inuming tubig (sapat para sa 3 araw)",
+      "food": "Ready-to-eat na pagkain at pambukas ng lata",
+      "ids": "Mga ID at mahahalagang dokumento sa waterproof na bag",
+      "cash": "Kaunting cash na maliliit ang denominasyon",
+      "firstaid": "First-aid kit",
+      "meds": "Mga iniresetang gamot",
+      "hygiene": "Mga gamit pang-kalinisan",
+      "light": "Flashlight at spare na baterya",
+      "phone": "Naka-charge na telepono at power bank",
+      "radio": "Radyong de-baterya",
+      "clothes": "Pamalit na damit at kumot",
+      "special": "Mga gamit para sa sanggol, matatanda, o may kapansanan"
+    },
+    "guides": {
+      "Before": { "phase": "Bago", "steps": [
+        "Alamin ang evacuation center ng barangay mo at ang daan papunta rito.",
+        "I-save at isulat ang mga emergency number.",
+        "Ihanda ang go-bag at ilagay kung saan madali itong makita ng lahat." ] },
+      "During": { "phase": "Habang", "steps": [
+        "Sundin ang mga anunsyo ng PAGASA at ng mga lokal na opisyal.",
+        "Lumikas kapag sinabi, o mas maaga kung tumataas na ang tubig.",
+        "Lumayo sa mga ilog, binabahang kalsada, at putol na kable ng kuryente." ] },
+      "After": { "phase": "Pagkatapos", "steps": [
+        "Umuwi lamang kapag sinabi ng mga opisyal na ligtas na.",
+        "Iwasan ang baha at mga nasirang istruktura.",
+        "Iulat sa barangay ang pinsala at pangangailangan." ] }
+    }
+  },
+  "hotlines": {
+    "National Emergency Hotline": { "name": "Pambansang Emergency Hotline", "note": "Pambansang emergency hotline." },
+    "Mogpog MDRRMO": { "name": "Mogpog MDRRMO", "note": "Ibibigay ng Mogpog MDRRMO." },
+    "Barangay hotline": { "name": "Hotline ng barangay", "note": "Idadagdag ng bawat barangay ang numero nito." },
+    "Marinduque Provincial DRRMO": { "name": "Marinduque Provincial DRRMO", "note": "Ibibigay ng PDRRMO." }
+  }
+}

@@ -8,7 +8,9 @@
     "facilities": [],
     "routeNote": "Flooding reached knee-deep in Laon during Typhoon Kristine (Oct 2024). Confirm the current route with the barangay.",
     "lastVerified": null,
-    "sample": true
+    "sample": true,
+    "status": "unknown",
+    "statusUpdated": null
   },
   {
     "id": "laon-court",
@@ -19,7 +21,9 @@
     "facilities": [],
     "routeNote": "",
     "lastVerified": null,
-    "sample": true
+    "sample": true,
+    "status": "unknown",
+    "statusUpdated": null
   },
   {
     "id": "tarug-hall",
@@ -30,7 +34,9 @@
     "facilities": [],
     "routeNote": "A road shoulder collapsed and a fallen tree blocked the road in Tarug during Typhoon Kristine (Oct 2024). Verify the current route status.",
     "lastVerified": null,
-    "sample": true
+    "sample": true,
+    "status": "unknown",
+    "statusUpdated": null
   },
   {
     "id": "tarug-court",
@@ -41,7 +47,9 @@
     "facilities": [],
     "routeNote": "",
     "lastVerified": null,
-    "sample": true
+    "sample": true,
+    "status": "unknown",
+    "statusUpdated": null
   },
   {
     "id": "sample-a",
@@ -49,9 +57,16 @@
     "name": "Sample Evacuation Center",
     "type": "School",
     "capacity": 150,
-    "facilities": ["Water supply", "Toilets", "Medical area"],
+    "facilities": [
+      "Water supply",
+      "Toilets",
+      "Medical area"
+    ],
     "routeNote": "Example record showing how capacity, facilities and route notes appear once filled in.",
     "lastVerified": "2026-01-01",
-    "sample": true
+    "sample": true,
+    "status": "open",
+    "statusUpdated": "2026-01-01",
+    "noMap": true
   }
 ]

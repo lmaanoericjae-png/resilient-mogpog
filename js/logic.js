@@ -1,9 +1,10 @@
 // Pure functions (no DOM) so they can be unit tested in Node.
 
-export function filterCenters(centers, { query = '', barangay = '' } = {}) {
+export function filterCenters(centers, { query = '', barangay = '', status = '' } = {}) {
   const q = query.trim().toLowerCase();
   return centers.filter(c => {
     if (barangay && c.barangay !== barangay) return false;
+    if (status && (c.status || 'unknown') !== status) return false;
     if (!q) return true;
     return [c.name, c.barangay, c.type, ...(c.facilities || [])]
       .join(' ').toLowerCase().includes(q);
@@ -39,7 +40,8 @@ export function getAdvisory(rules, typeId, levelId, exposureId) {
     tone: action.tone,
     steps: action.steps,
     exposureNote: exposure && base > 0 ? exposure.note : '',
-    explanation
+    explanation,
+    parts: { typeLabel: type.label, levelLabel: level.label, exposureLabel: exposure ? exposure.label : '' }
   };
 }
 
@@ -47,4 +49,15 @@ export function checklistProgress(groups, checked) {
   const ids = groups.flatMap(g => g.items.map(i => i.id));
   const done = ids.filter(id => checked[id]).length;
   return { done, total: ids.length, percent: ids.length ? Math.round(done / ids.length * 100) : 0 };
+}
+
+export function planProgress(plan, fieldIds) {
+  const filled = fieldIds.filter(id => String(plan[id] ?? '').trim() !== '').length;
+  return { filled, total: fieldIds.length };
+}
+
+export function mapSearchUrl(center, areaName) {
+  if (center.noMap) return null;
+  const q = `${center.name}, ${center.barangay}, ${areaName}`;
+  return 'https://www.openstreetmap.org/search?query=' + encodeURIComponent(q);
 }

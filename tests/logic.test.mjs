@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { filterCenters, uniqueBarangays, getAdvisory, checklistProgress } from '../js/logic.js';
+import { filterCenters, uniqueBarangays, getAdvisory, checklistProgress, planProgress, mapSearchUrl } from '../js/logic.js';
 
 const j = f => JSON.parse(readFileSync(new URL(`../data/${f}.json`, import.meta.url)));
 const centers = j('evacuation-centers');
@@ -52,4 +52,32 @@ test('checklist progress', () => {
   assert.equal(checklistProgress(checklist.groups, {}).done, 0);
   const all = Object.fromEntries(checklist.groups.flatMap(g => g.items.map(i => [i.id, true])));
   assert.equal(checklistProgress(checklist.groups, all).percent, 100);
+});
+
+test('filter by status', () => {
+  assert.equal(filterCenters(centers, { status: 'open' }).length, 1);
+  assert.equal(filterCenters(centers, { status: 'unknown' }).length, centers.length - 1);
+});
+test('planProgress counts non-empty fields', () => {
+  assert.deepEqual(planProgress({ a: 'x', b: '  ', c: 0 }, ['a', 'b', 'c', 'd']), { filled: 2, total: 4 });
+});
+test('mapSearchUrl encodes and skips noMap', () => {
+  const u = mapSearchUrl({ name: 'Laon Hall', barangay: 'Laon' }, 'Mogpog, Marinduque');
+  assert.match(u, /^https:\/\/www\.openstreetmap\.org\/search\?query=Laon%20Hall/);
+  assert.equal(mapSearchUrl({ name: 'x', barangay: 'y', noMap: true }, 'z'), null);
+});
+test('advisory exposes label parts', () => {
+  const r = getAdvisory(rules, 'rainfall', 'red', 'upland');
+  assert.equal(r.parts.levelLabel, 'Red');
+});
+test('Filipino file covers every action, exposure, checklist item and hotline', () => {
+  const fil = j('fil');
+  for (const k of Object.keys(rules.actions)) {
+    assert.ok(fil.rules.actions[k].label);
+    assert.equal(fil.rules.actions[k].steps.length, rules.actions[k].steps.length);
+  }
+  for (const e of rules.exposureTypes) assert.ok(fil.rules.exposure[e.id].note);
+  for (const g of checklist.groups) { assert.ok(fil.checklist.groups[g.id]); for (const i of g.items) assert.ok(fil.checklist.items[i.id], i.id); }
+  for (const g of checklist.guides) assert.equal(fil.checklist.guides[g.phase].steps.length, g.steps.length);
+  for (const h of j('hotlines')) assert.ok(fil.hotlines[h.name]);
 });

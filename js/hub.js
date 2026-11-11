@@ -1,6 +1,7 @@
 import { el, clear, $ } from './dom.js';
 import { checklistProgress } from './logic.js';
 import { load, save } from './store.js';
+import { t } from './i18n.js';
 
 export function initHub(checklist, hotlines) {
   const box = $('#hub-checklist');
@@ -12,7 +13,7 @@ export function initHub(checklist, hotlines) {
   function updateProgress() {
     const p = checklistProgress(checklist.groups, checked);
     bar.value = p.percent;
-    label.textContent = `${p.done} of ${p.total} items packed (${p.percent}%)`;
+    label.textContent = t('hub.progress', { done: p.done, total: p.total, pct: p.percent });
   }
 
   checklist.groups.forEach(g => {
@@ -42,6 +43,6 @@ export function initHub(checklist, hotlines) {
     el('strong', { text: h.name }),
     h.number
       ? el('a', { class: 'tel', href: `tel:${h.number}`, text: h.number })
-      : el('span', { class: 'chip chip-warn', text: 'Number pending' }),
+      : el('span', { class: 'chip chip-warn', text: t('hub.pending') }),
     el('small', { text: h.note }))));
 }

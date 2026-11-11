@@ -3,7 +3,8 @@
 *{box-sizing:border-box}
 body{margin:0;font:16px/1.5 system-ui,sans-serif;background:var(--bg);color:var(--fg)}
 .skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:var(--card);padding:8px}
-.top{padding:20px 16px 8px;max-width:1000px;margin:auto}
+.top{padding:20px 16px 8px;max-width:1000px;margin:auto;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.lang{padding:8px 12px;border:1px solid var(--brand);background:transparent;color:var(--brand);border-radius:99px;font:inherit;font-size:.85rem;cursor:pointer;white-space:nowrap}
 h1{margin:0;color:var(--brand)}.top p{margin:0;color:var(--muted)}
 .banner{max-width:1000px;margin:8px auto;padding:10px 16px;background:var(--warn);border-left:4px solid var(--prepare);font-size:.9rem}
 .banner:empty{display:none}.banner.err{border-color:var(--evac)}
@@ -46,3 +47,32 @@ summary{cursor:pointer;font-weight:600}
 .hotlines small{flex-basis:100%;color:var(--muted)}
 .tel{font-size:1.2rem;font-weight:700;color:var(--brand)}
 footer{max-width:1000px;margin:24px auto;padding:0 16px;color:var(--muted);font-size:.85rem}
+
+.chip.st-open{background:#d6f5df;color:#0f5132}.chip.st-closed{background:#f8d7da;color:#842029}.chip.st-full{background:#ffe5b4;color:#7a4300}
+.maplink{display:inline-block;margin-top:6px;color:var(--brand);font-weight:600}
+.plan-form{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.plan-form label{display:flex;flex-direction:column;gap:4px;font-size:.9rem}
+.plan-form input,.plan-form select{padding:10px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg)}
+.actions{display:flex;gap:8px;margin-top:12px}
+.actions button{padding:10px 14px;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:6px;cursor:pointer}
+@media print{
+  .top .lang,.banner,nav,footer,.noprint,.skip,section:not(#panel-plan){display:none!important}
+  #panel-plan{display:block!important}
+  body{background:#fff;color:#000}
+  .plan-form input,.plan-form select{border:0;border-bottom:1px solid #000;border-radius:0;background:transparent;color:#000}
+}
+
+/* narrow phones */
+.top>div{min-width:0}
+.lang{flex-shrink:0;min-height:44px}
+h1{font-size:clamp(1.4rem,7vw,2rem);overflow-wrap:anywhere}
+nav button{overflow-wrap:anywhere;hyphens:auto}
+@media(max-width:600px){
+  nav{display:grid;grid-template-columns:1fr 1fr;gap:6px;overflow:visible}
+  nav button{border-radius:8px;min-height:48px}
+  .actions button,button#hub-reset{min-height:44px}
+}
+
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.logo{width:52px;height:auto;flex-shrink:0;background:#fff;border-radius:12px;padding:5px;border:1px solid var(--line)}
+@media(max-width:600px){.logo{width:44px}}

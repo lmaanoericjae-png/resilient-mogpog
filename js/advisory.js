@@ -35,7 +35,7 @@ export function initAdvisory(rules) {
       el('p', { class: 'result-level', text: t('adv.levelOf', { s: r.severity, max: rules.maxSeverity }) }),
       el('h3', { text: r.label }),
       el('ul', {}, r.steps.map(s => el('li', { text: s }))),
-      r.exposureNote ? el('p', { class: 'note', text: r.exposureNote }) : null,
+      r.exposureNote ? el('p', { class: 'note', text: r.exposureNote }) : '',
       el('p', { class: 'why' }, el('strong', { text: t('adv.why') }), explain(r)));
     save('advisory', { type: typeSel.value, level: levelSel.value, exposure: expSel.value });
   }

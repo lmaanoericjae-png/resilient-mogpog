@@ -2,8 +2,20 @@
 
 <img src="assets/logo-wordmark.png" alt="ResilientMogpog logo" width="320">
 
-Frontend-only preparedness and evacuation information portal for Mogpog, Marinduque.
-Web Systems and Technologies 1 final project, group "Never Grow Old", BSIT 3C, MarSU.
+**An offline-capable web portal for evacuation information and rule-based preparedness advice in Mogpog, Marinduque.**
+Web Systems and Technologies 1 final project, group "Never Grow Old", BSIT 3C, Marinduque State University.
+
+- **Live project:** https://sethsyzygy.github.io/resilient-mogpog/
+- **Repository:** https://github.com/SethSyzygy/resilient-mogpog
+
+## Selected sector
+Disaster Risk Reduction and Climate Change Adaptation (DRR/CCA).
+
+## Problem
+Mogpog is exposed to typhoons, flooding and landslides (Typhoon Kristine, October 2024, hit Laon and Tarug hard). Residents need to know where to evacuate, what to do at a given warning level, and what to prepare, often when signal and power are poor. Literature on Philippine disasters points to gaps in preparedness and in access to usable information. We did not survey local residents; see the manuscript for the full problem statement and its limits.
+
+## Proposed solution
+A static, frontend-only web app that works offline after the first load. Place-specific content lives in JSON files, so it can be corrected by the MDRRMO or barangay staff without code changes.
 
 ## Core features (Week 2 MVP)
 1. **Evacuation center directory**: search and filter by barangay, with capacity, facilities, route notes and verification date.
@@ -15,10 +27,10 @@ Also: center status (open/full/closed/unknown, with update date), "Find on map" 
 
 Works offline after the first load (service worker).
 
-## Stack
+## Technologies used
 HTML5, CSS3, vanilla JavaScript (ES modules), JSON data files, localStorage, service worker. No backend or database.
 
-## Run
+## Running instructions
 ES modules and fetch need a server (not `file://`):
 ```
 python3 -m http.server 8000
@@ -39,6 +51,14 @@ All place-specific content lives in `data/*.json`. Change `config.json`, the cen
 - Only 911 is filled in; other numbers are marked pending.
 - Advisory rules are a simplified model, not an official PAGASA/NDRRMC product.
 
+## Group members
+Eric Jae Maaño (group lead), Dyan Krisna Paz, Roderick Parreño, Mel Joy Mendeja, Ruth Ann Rocha, Maria Amanda Son. Roles: see [CONTRIBUTIONS.md](CONTRIBUTIONS.md).
+
+## Documentation and disclosure
+- Full documentation (manuscript, Markdown): [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md)
+- Manuscript PDF: [docs/final-manuscript.pdf](docs/final-manuscript.pdf)
+- AI use disclosure: [AI_DISCLOSURE.md](AI_DISCLOSURE.md)
+
 ## Structure
 ```
 index.html  sw.js  css/styles.css
@@ -46,5 +66,6 @@ js/  app.js dom.js store.js i18n.js logic.js directory.js advisory.js hub.js pla
 data/  config evacuation-centers advisory-rules hotlines checklist fil (.json)
 tests/logic.test.mjs
 assets/  logo and icons
-AI_DISCLOSURE.md
+AI_DISCLOSURE.md  CONTRIBUTIONS.md  PROJECT_DOCUMENTATION.md
+docs/  final-manuscript.pdf  figures/
 ```

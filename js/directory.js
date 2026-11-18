@@ -1,5 +1,5 @@
 import { el, clear, $ } from './dom.js';
-import { filterCenters, uniqueBarangays, mapSearchUrl } from './logic.js';
+import { filterCenters, uniqueBarangays, mapSearchUrl, barangayMapUrl } from './logic.js';
 import { t } from './i18n.js';
 
 export function initDirectory(centers, areaName) {
@@ -40,6 +40,7 @@ export function initDirectory(centers, areaName) {
       [t('lastVerified'), c.lastVerified || t('notVerified')]
     ];
     const url = mapSearchUrl(c, areaName);
+    const areaUrl = barangayMapUrl(c, areaName);
     return el('article', { class: 'card center' },
       el('header', {},
         el('h3', { text: c.name }),
@@ -48,7 +49,10 @@ export function initDirectory(centers, areaName) {
         c.sample ? el('span', { class: 'chip chip-warn', text: t('sample') }) : null),
       el('dl', {}, facts.map(([k, v]) => [el('dt', { text: k }), el('dd', { text: v })])),
       c.routeNote ? el('p', { class: 'note', text: c.routeNote }) : null,
-      url ? el('a', { class: 'maplink', href: url, target: '_blank', rel: 'noopener noreferrer', text: t('findMap') }) : null);
+      url ? el('p', { class: 'maplinks' },
+        el('a', { class: 'maplink', href: url, target: '_blank', rel: 'noopener noreferrer', text: t('findMap') }),
+        ' · ',
+        el('a', { class: 'maplink', href: areaUrl, target: '_blank', rel: 'noopener noreferrer', text: t('findArea') })) : null);
   }
 
   search.addEventListener('input', render);

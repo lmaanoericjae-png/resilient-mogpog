@@ -31,12 +31,14 @@ export function initAdvisory(rules) {
     clear(out);
     if (!r) return;
     out.className = `result tone-${r.tone}`;
-    out.append(
+    out.append(...[
       el('p', { class: 'result-level', text: t('adv.levelOf', { s: r.severity, max: rules.maxSeverity }) }),
       el('h3', { text: r.label }),
       el('ul', {}, r.steps.map(s => el('li', { text: s }))),
       r.exposureNote ? el('p', { class: 'note', text: r.exposureNote }) : '',
-      el('p', { class: 'why' }, el('strong', { text: t('adv.why') }), explain(r)));
+      el('p', { class: 'why' }, el('strong', { text: t('adv.why') }), explain(r))
+    ].filter(Boolean));
+    // (append() turns a null argument into the text "null", so drop empty items first)
     save('advisory', { type: typeSel.value, level: levelSel.value, exposure: expSel.value });
   }
 

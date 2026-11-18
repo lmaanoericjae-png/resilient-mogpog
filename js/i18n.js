@@ -11,7 +11,7 @@ const EN = {
   'dir.count': '{n} of {total} centers shown', 'dir.empty': 'No evacuation centers match your search.',
   'type': 'Type', 'capacity': 'Capacity', 'capacity.people': '{n} people', 'facilities': 'Facilities',
   'lastVerified': 'Last verified', 'status': 'Status', 'notProvided': 'Not yet provided', 'notVerified': 'Not yet verified',
-  'sample': 'Sample / unverified', 'findMap': 'Find on map',
+  'sample': 'Sample / unverified', 'findMap': 'Find on map', 'findArea': 'Show barangay area',
   'status.open': 'Open', 'status.closed': 'Closed', 'status.full': 'Full', 'status.unknown': 'Unknown',
   'statusAsOf': '{s} (updated {d})', 'statusNone': '{s} (not yet updated)',
   'adv.title': 'What should I do?', 'adv.type': 'Warning type', 'adv.level': 'Warning level', 'adv.exposure': 'Where you live',

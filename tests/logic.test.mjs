@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { filterCenters, uniqueBarangays, getAdvisory, checklistProgress, planProgress, mapSearchUrl } from '../js/logic.js';
+import { barangayMapUrl, filterCenters, uniqueBarangays, getAdvisory, checklistProgress, planProgress, mapSearchUrl } from '../js/logic.js';
 
 const j = f => JSON.parse(readFileSync(new URL(`../data/${f}.json`, import.meta.url)));
 const centers = j('evacuation-centers');
@@ -63,8 +63,9 @@ test('planProgress counts non-empty fields', () => {
 });
 test('mapSearchUrl encodes and skips noMap', () => {
   const u = mapSearchUrl({ name: 'Laon Hall', barangay: 'Laon' }, 'Mogpog, Marinduque');
-  assert.match(u, /^https:\/\/www\.openstreetmap\.org\/search\?query=Laon%20Hall/);
+  assert.match(u, /^https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=Laon%20Hall/);
   assert.equal(mapSearchUrl({ name: 'x', barangay: 'y', noMap: true }, 'z'), null);
+  assert.match(barangayMapUrl({ name: 'Laon Hall', barangay: 'Laon' }, 'Mogpog, Marinduque'), /query=Barangay%20Laon%2C%20Mogpog/);
 });
 test('advisory exposes label parts', () => {
   const r = getAdvisory(rules, 'rainfall', 'red', 'upland');

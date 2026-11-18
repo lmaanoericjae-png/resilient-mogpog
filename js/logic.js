@@ -59,5 +59,11 @@ export function planProgress(plan, fieldIds) {
 export function mapSearchUrl(center, areaName) {
   if (center.noMap) return null;
   const q = `${center.name}, ${center.barangay}, ${areaName}`;
-  return 'https://www.openstreetmap.org/search?query=' + encodeURIComponent(q);
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+}
+
+// Fallback: the barangay itself, which is far more likely to be found than a placeholder center name.
+export function barangayMapUrl(center, areaName) {
+  if (center.noMap) return null;
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(`Barangay ${center.barangay}, ${areaName}`);
 }
